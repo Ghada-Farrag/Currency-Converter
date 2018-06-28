@@ -40,7 +40,7 @@ IndexController.prototype._registerServiceWorker = function() {
 
   var indexController = this;
 
-  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+  navigator.serviceWorker.register('./sw.js').then(function(reg) {
     if (!navigator.serviceWorker.controller) {
       return;
     }
