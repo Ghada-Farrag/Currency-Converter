@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Ghibli App</title>
+	<link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet"> 
+	<link href="style.css" rel="stylesheet"> 
+</head>
+	<body>
+		<script src="idb.js"></script>
+		<script src="IndexController.js"></script>
+		<script src="index.js"></script>
+
+		<div class="row">
+		
+			<div class="medium-6 columns">
+				<div class="row collapse">
+					<div class="medium-3 columns">
+						<input type="text" value="1" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount">
+					</div>
+					<div class="medium-3 columns">
+						<select id="CURR_FROM" class="postfix">
+		
+						</select>
+					</div>
+					<div class="medium-3 columns" style="text-align: center;">
+						<span class="postfix">to</span>
+					</div>
+					<div class="medium-3 columns">
+						<select id="CURR_TO" class="postfix">
+		
+						</select>
+					</div>
+				</div>
+			</div>
+		
+		
+		
+			<div class="medium-3 columns">
+				<button onclick="getCurrencyUsingJQuery()" class="button postfix">Convert</button>
+			</div>
+		
+			<div class="medium-3 columns">
+				<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert button" style="background-color: #eee; font-weight: bold;">
+			</div>
+		
+		</div>
+
+		
+	</body> 
+</html> 
