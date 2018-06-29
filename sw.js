@@ -1,8 +1,6 @@
-var staticCacheName = 'cc-static-v6';
-var contentCache = 'cc-contents';
+var staticCacheName = 'cc-static-v61';
 var allCaches = [
-    staticCacheName,
-    contentCache
+    staticCacheName
 ];
 
 self.addEventListener('install', function (event) {
@@ -14,7 +12,7 @@ self.addEventListener('install', function (event) {
                 '/idb.js',
                 '/index.js',
                 '/IndexController.js'
-            ]);  
+            ]);
         })
     );
 });
@@ -22,7 +20,7 @@ self.addEventListener('install', function (event) {
 self.addEventListener('activate', function (event) {
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
-            return Promise.all( 
+            return Promise.all(
                 cacheNames.filter(function (cacheName) {
                     return cacheName.startsWith('cc-') &&
                         !allCaches.includes(cacheName);
@@ -38,21 +36,30 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
-    if (requestUrl.origin === location.origin) {
-        if (requestUrl.pathname === '/') {
-            event.respondWith(caches.match('/index.html'));
-            return;
-        }
-        if (requestUrl.pathname.endsWith('style.css')) {
-            event.respondWith(caches.match('/style.css'));
-            return;
-        }
-        if (requestUrl.pathname.endsWith('.js')) {
-            event.respondWith(caches.match(requestUrl.pathname));
-            return;
-        }
-    }
-
+        if (requestUrl.origin === location.origin) {
+            if (requestUrl.pathname === '/') {
+                event.respondWith(caches.match('index.html'));
+                return;
+            }
+            if (requestUrl.pathname === '/Currency-Converter/') {
+                event.respondWith(caches.match('Currency-Converter/index.html'));
+                return;
+            }
+            // if (requestUrl.pathname.endsWith('style.css')) {
+            //     event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
+            //     return;
+            // }
+            // if (requestUrl.pathname.endsWith('.js')) {
+            //     //event.respondWith(caches.match(requestUrl.pathname.replace('/','')));
+            //     const index = requestUrl.pathname.indexOf("Currency-Converter/") + 1;
+            //     console.log('index = ', index)
+            //     event.respondWith(caches.match(requestUrl.pathname.substring(index)));
+            //     return;
+            
+            // }
+        }    
+    
+    console.log(event.request);
     event.respondWith(
         caches.match(event.request).then(function (response) {
             return response || fetch(event.request);
@@ -68,17 +75,17 @@ self.addEventListener('message', function (event) {
 });
 
 
-function serveCurrency(request) {
-    var storageUrl = request.url;
+// function serveCurrency(request) {
+//     var storageUrl = request.url;
 
-    return caches.open(staticCacheName).then(function (cache) {
-        return cache.match(storageUrl).then(function (response) {
-            if (response) return response;
+//     return caches.open(staticCacheName).then(function (cache) {
+//         return cache.match(storageUrl).then(function (response) {
+//             if (response) return response;
 
-            return fetch(request).then(function (networkResponse) {
-                cache.put(storageUrl, networkResponse.clone());
-                return networkResponse;
-            });
-        });
-    });
-}
+//             return fetch(request).then(function (networkResponse) {
+//                 cache.put(storageUrl, networkResponse.clone());
+//                 return networkResponse;
+//             });
+//         });
+//     });
+// }
