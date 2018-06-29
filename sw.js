@@ -43,11 +43,15 @@ self.addEventListener('fetch', function (event) {
             event.respondWith(caches.match('index.html'));
             return;
         }
-        // if (requestUrl.pathname === '/Currency-Converter/') {
-        //     event.respondWith(caches.match('Currency-Converter/index.html'));
-        //     return;
-        // }
-        console.log(requestUrl.pathname);
+        if (requestUrl.pathname.endsWith('index.html')) {
+            event.respondWith(caches.match('Currency-Converter/index.html'));
+            return;
+        }
+        if (requestUrl.pathname.endsWith('.js')) {
+            event.respondWith(caches.match(requestUrl.pathname));
+            return;
+        }
+        
         // if (requestUrl.pathname.includes("/Currency-Converter/")) {
         //     event.respondWith(caches.match(requestUrl.pathname));
         //     return;
