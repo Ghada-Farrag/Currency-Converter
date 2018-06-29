@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-44';
+var staticCacheName = 'cc-static-99';
 var allCaches = [
     staticCacheName
 ];
@@ -41,10 +41,15 @@ self.addEventListener('fetch', function (event) {
                 event.respondWith(caches.match('index.html'));
                 return;
             }
-            // if (requestUrl.pathname.endsWith('/')) {
-            //     event.respondWith(caches.match('Currency-Converter/index.html'));
-            //     return;
-            // }
+            if (requestUrl.pathname.endsWith('/')) {
+                //event.respondWith(caches.match('Currency-Converter/index.html'));
+                
+                return fetch('index.html');
+            }
+            if (requestUrl.pathname.endsWith('index.html')) {
+                event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
+                return;
+            }
             if (requestUrl.pathname.endsWith('style.css')) {
                 event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
                 return;
