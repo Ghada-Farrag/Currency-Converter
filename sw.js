@@ -26,6 +26,7 @@ self.addEventListener('activate', function (event) {
                     return cacheName.startsWith('cc-') && 
                         !allCaches.includes(cacheName);
                 }).map(function (cacheName) {
+                    if (cacheName === staticCacheName) return Promise.resolve();
                     return caches.delete(cacheName);
                 })
             );
