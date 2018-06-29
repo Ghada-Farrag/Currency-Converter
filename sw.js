@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-200;
+var staticCacheName = 'cc-static-200';
 var allCaches = [
     staticCacheName
 ];
