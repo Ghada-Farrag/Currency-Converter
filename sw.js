@@ -39,12 +39,12 @@ self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
     if (requestUrl.origin === location.origin) {
-        if (requestUrl.pathname === ("/Currency-Converter/")) {
-            event.respondWith(caches.match('Currency-Converter/index.html'));
+        if (requestUrl.pathname === "/") {
+            event.respondWith(caches.match('index.html'));
             return;
         }
-        if (requestUrl.pathname === ("/")) {
-            event.respondWith(caches.match('index.html'));
+        if (requestUrl.pathname === "/Currency-Converter/") {
+            event.respondWith(caches.match('Currency-Converter/index.html'));
             return;
         }
         if (requestUrl.pathname.includes("/Currency-Converter/")) {
