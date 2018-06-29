@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-v1';
+var staticCacheName = 'cc-static-v4';
 var contentCache = 'cc-contents';
 var allCaches = [
     staticCacheName,
@@ -9,12 +9,13 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
-                './index.html',
-                './style.css',
-                './idb.js',
-                './index.js',
-                './IndexController.js'
-            ]);  
+                '',
+                'index.html',
+                'style.css',
+                'idb.js',
+                'index.js',
+                'IndexController.js'
+            ]);
         })
     );
 });
@@ -22,7 +23,7 @@ self.addEventListener('install', function (event) {
 self.addEventListener('activate', function (event) {
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
-            return Promise.all( 
+            return Promise.all(
                 cacheNames.filter(function (cacheName) {
                     return cacheName.startsWith('cc-') &&
                         !allCaches.includes(cacheName);
@@ -39,18 +40,14 @@ self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
     if (requestUrl.origin === location.origin) {
-        if (requestUrl.pathname === './') {
+        if (requestUrl.pathname.includes("/Currency-Converter/")) {
             event.respondWith(caches.match(requestUrl.pathname));
             return;
         }
-        // if (requestUrl.pathname.endsWith('style.css')) {
-        //     event.respondWith(caches.match('./style.css'));
-        //     return;
-        // }
-        // if (requestUrl.pathname.endsWith('.js')) {
-        //     event.respondWith(caches.match(requestUrl.pathname));
-        //     return;
-        // }
+        if (requestUrl.pathname === ("/")) {
+            event.respondWith(caches.match('index.html'));
+            return;
+        }
     }
 
     event.respondWith(
