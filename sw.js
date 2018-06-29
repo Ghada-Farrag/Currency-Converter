@@ -9,11 +9,11 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
-                'index.html',
-                'style.css',
-                'idb.js',
-                'index.js',
-                'IndexController.js'
+                './index.html',
+                './style.css',
+                './idb.js',
+                './index.js',
+                './IndexController.js'
             ]);
         })
     );
@@ -39,15 +39,15 @@ self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
     if (requestUrl.origin === location.origin) {
-        if (requestUrl.pathname === "/") {
+        if (requestUrl.pathname === '/') {
             event.respondWith(caches.match('index.html'));
             return;
         }
-        if (requestUrl.pathname === "/Currency-Converter/") {
+        if (requestUrl.pathname === '/Currency-Converter/') {
             event.respondWith(caches.match('Currency-Converter/index.html'));
             return;
         }
-        console.log(requestUrl.pathname);
+        //console.log(requestUrl.pathname);
         // if (requestUrl.pathname.includes("/Currency-Converter/")) {
         //     event.respondWith(caches.match(requestUrl.pathname));
         //     return;
