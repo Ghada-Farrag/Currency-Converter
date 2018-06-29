@@ -6,30 +6,31 @@
 <style scoped>
 	@import url("./style.css");
 </style>
-<div>
-	<h1>CURRENCY CONVERTER</h1>
-	<div> </div>
+<div id='main'>
+	<div class='form-style-6'>
+		<h1>CURRENCY CONVERTER</h1>
+		
+			<div>
+				<span>
+					<input type="number" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount here ..." required>
+				</span>
+				<div>From </div>
+				<div>
+					<select id="CURR_FROM"></select>
+				</div>
+				<div>To</div>
+				<div>
+					<select id="CURR_TO"></select>
+				</div>
 
-	<div class="row">
-		<span class="input">
-			<input type="text" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount here ...">
-		</span>
-		<div class="row">From </div>
-		<div class="row"><select id="CURR_FROM"></select></div>
-		<div class="row">To</div>
-		<div class="row"><select id="CURR_TO"></select></div>
+				<div>
+					<button type="button" onclick="btnConvertCurrency()" >CONVERT</button>
+				</div>
 
-<div class="row">
-			<span>
-				<button class="small button" onclick="btnConvertCurrency()">Convert</button>
-			</span>
-</div>
-
-	<div> </div>
-</div>
-
-<div>
-	<span class="input">
-		<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert button to see your result here ...">
-	</span>
+				<div>
+					<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert button to see your result here ...">
+				</div>
+			</div>
+		
+	</div>
 </div>

@@ -1,21 +1,17 @@
-
-
 const indexController = new IndexController(document.querySelector('.main'));
 
 
-
-function btnConvertCurrency()
-{
+function btnConvertCurrency() {
     let amount = document.getElementById("CURR_FR_VAL").value;
-    let fromSelect = document.getElementById("CURR_FROM");
-    let fromCurrency = fromSelect.options[fromSelect.selectedIndex].value;
-    let toSelect = document.getElementById("CURR_TO");
-    let toCurrency = toSelect.options[toSelect.selectedIndex].value;
-    document.getElementById("CURR_VAL").value = 0;
+    if (document.getElementById('CURR_FR_VAL').validity.valid) {
+        const fromSelect = document.getElementById("CURR_FROM");
+        const fromCurrency = fromSelect.options[fromSelect.selectedIndex].value;
+        const toSelect = document.getElementById("CURR_TO");
+        const toCurrency = toSelect.options[toSelect.selectedIndex].value;
+        document.getElementById("CURR_VAL").value = '';
 
-    indexController._convertCurrency(amount, fromCurrency, toCurrency);
-  
-}
-
-
-
+        indexController.convertCurrency(amount, fromCurrency, toCurrency);
+    } else {
+        document.getElementById("CURR_VAL").value = 'No amount entered!';
+    }
+}                                                               
