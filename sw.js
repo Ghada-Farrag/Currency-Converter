@@ -20,18 +20,18 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('activate', function (event) {
-    event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.filter(function (cacheName) {
-                    return cacheName.startsWith('cc-') &&
-                        !allCaches.includes(cacheName);
-                }).map(function (cacheName) {
-                    return caches.delete(cacheName);
-                })
-            );
-        })
-    );
+    // event.waitUntil(
+    //     caches.keys().then(function (cacheNames) {
+    //         return Promise.all(
+    //             cacheNames.filter(function (cacheName) {
+    //                 return cacheName.startsWith('cc-') &&
+    //                     !allCaches.includes(cacheName);
+    //             }).map(function (cacheName) {
+    //                 return caches.delete(cacheName);
+    //             })
+    //         );
+    //     })
+    // );
 
 });
 
@@ -39,6 +39,7 @@ self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
     console.log(requestUrl.pathname);
+    console.log('caches : ' , caches.keys)
     if (requestUrl.origin === location.origin) {
         if (requestUrl.pathname === '/') {
             event.respondWith(caches.match('index.html'));
