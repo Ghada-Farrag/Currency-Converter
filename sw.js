@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-99';
+var staticCacheName = 'cc-static-100';
 var allCaches = [
     staticCacheName
 ];
@@ -44,20 +44,20 @@ self.addEventListener('fetch', function (event) {
             if (requestUrl.pathname.endsWith('/')) {
                 //event.respondWith(caches.match('Currency-Converter/index.html'));
                 
-                return fetch('index.html');
+                return fetch('./index.html');
             }
             if (requestUrl.pathname.endsWith('index.html')) {
                 event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
                 return;
             }
             if (requestUrl.pathname.endsWith('style.css')) {
-                event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
+                const index = requestUrl.pathname.indexOf("Currency-Converter/") + 1;
+                event.respondWith(caches.match(requestUrl.pathname.substring(index)));
                 return;
             }
             if (requestUrl.pathname.endsWith('.js')) {
                 //event.respondWith(caches.match(requestUrl.pathname.replace('/','')));
                 const index = requestUrl.pathname.indexOf("Currency-Converter/") + 1;
-                console.log('index = ', index)
                 event.respondWith(caches.match(requestUrl.pathname.substring(index)));
                 return;
             
