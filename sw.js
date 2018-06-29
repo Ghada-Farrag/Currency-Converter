@@ -1,4 +1,4 @@
-const staticCacheName = 'cc-static-v90';
+const staticCacheName = 'cc-static-v91';
 
 const allCaches = [
     staticCacheName
@@ -10,6 +10,7 @@ self.addEventListener('install', function (event) {
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
                 '/',
+                'Currency-Converter/',
                 'index.html',
                 'idb.js',
                 'index.js',
@@ -19,24 +20,24 @@ self.addEventListener('install', function (event) {
     );
 });
 
-self.addEventListener('activate', function (event) {
+// self.addEventListener('activate', function (event) {
   
-    // event.waitUntil(
-    //     caches.keys().then(function (cacheNames) {
-    //         return Promise.all(
-    //             cacheNames.filter(function (cacheName) {
-    //                 return cacheName.startsWith('cc-') && 
-    //                     !allCaches.includes(cacheName);
-    //             }).map(function (cacheName) {
-    //                 return caches.delete(cacheName);
-    //             })
-    //         );
-    //     })
-    // );
+//     // event.waitUntil(
+//     //     caches.keys().then(function (cacheNames) {
+//     //         return Promise.all(
+//     //             cacheNames.filter(function (cacheName) {
+//     //                 return cacheName.startsWith('cc-') && 
+//     //                     !allCaches.includes(cacheName);
+//     //             }).map(function (cacheName) {
+//     //                 return caches.delete(cacheName);
+//     //             })
+//     //         );
+//     //     })
+//     // );
 
-    return;
+    
 
-});
+// });
 
 self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
