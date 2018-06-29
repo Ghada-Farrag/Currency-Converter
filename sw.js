@@ -1,18 +1,24 @@
-const staticCacheName = 'cc-static-v20';
+const staticCacheName = 'cc-static-v50';
 
 const allCaches = [
     staticCacheName
 ];
 
 self.addEventListener('install', function (event) {
+    fetch('index.html').then(function (response) {
+        if (!response.ok) {
+            throw new TypeError('Bad response status from index.html');
+        }
+    })
+
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
                 'index.html',
-                './style.css',
-                './idb.js',
-                './index.js',
-                './IndexController.js'
+                'style.css',
+                'idb.js',
+                'index.js',
+                'IndexController.js'
             ]);
         })
     );
