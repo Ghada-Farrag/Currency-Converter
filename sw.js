@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-v7';
+var staticCacheName = 'cc-static-v1';
 var contentCache = 'cc-contents';
 var allCaches = [
     staticCacheName,
@@ -39,18 +39,18 @@ self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
     if (requestUrl.origin === location.origin) {
-        if (requestUrl.pathname === '/') {
-            event.respondWith(caches.match('./index.html'));
-            return;
-        }
-        if (requestUrl.pathname.endsWith('style.css')) {
-            event.respondWith(caches.match('./style.css'));
-            return;
-        }
-        if (requestUrl.pathname.endsWith('.js')) {
+        if (requestUrl.pathname === './') {
             event.respondWith(caches.match(requestUrl.pathname));
             return;
         }
+        // if (requestUrl.pathname.endsWith('style.css')) {
+        //     event.respondWith(caches.match('./style.css'));
+        //     return;
+        // }
+        // if (requestUrl.pathname.endsWith('.js')) {
+        //     event.respondWith(caches.match(requestUrl.pathname));
+        //     return;
+        // }
     }
 
     event.respondWith(
