@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-v4';
+var staticCacheName = 'cc-static-v1';
 var contentCache = 'cc-contents';
 var allCaches = [
     staticCacheName,
@@ -38,6 +38,7 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', function (event) {
     var requestUrl = new URL(event.request.url);
 
+    console.log(requestUrl.pathname);
     if (requestUrl.origin === location.origin) {
         if (requestUrl.pathname === '/') {
             event.respondWith(caches.match('index.html'));
@@ -48,10 +49,9 @@ self.addEventListener('fetch', function (event) {
             return;
         }
         if (requestUrl.pathname.endsWith('.js')) {
-            event.respondWith(caches.match(requestUrl.pathname));
+            event.respondWith(caches.match(requestUrl.pathname.replace('/','')));
             return;
         }
-        
         // if (requestUrl.pathname.includes("/Currency-Converter/")) {
         //     event.respondWith(caches.match(requestUrl.pathname));
         //     return;
