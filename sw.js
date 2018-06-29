@@ -1,4 +1,4 @@
-var staticCacheName = 'cc-static-v6';
+var staticCacheName = 'cc-static-v7';
 var contentCache = 'cc-contents';
 var allCaches = [
     staticCacheName,
@@ -9,11 +9,11 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
-                '/index.html',
-                '/style.css',
-                '/idb.js',
-                '/index.js',
-                '/IndexController.js'
+                './index.html',
+                './style.css',
+                './idb.js',
+                './index.js',
+                './IndexController.js'
             ]);  
         })
     );
