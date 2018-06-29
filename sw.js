@@ -1,4 +1,4 @@
-const staticCacheName = 'cc-static-v1';
+const staticCacheName = 'cc-static-v20';
 
 const allCaches = [
     staticCacheName
@@ -8,7 +8,7 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
-                './index.html',
+                'index.html',
                 './style.css',
                 './idb.js',
                 './index.js',
@@ -19,6 +19,7 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('activate', function (event) {
+  
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
             return Promise.all(
@@ -26,7 +27,6 @@ self.addEventListener('activate', function (event) {
                     return cacheName.startsWith('cc-') && 
                         !allCaches.includes(cacheName);
                 }).map(function (cacheName) {
-                    if (cacheName === staticCacheName) return Promise.resolve();
                     return caches.delete(cacheName);
                 })
             );
