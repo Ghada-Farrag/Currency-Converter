@@ -47,10 +47,11 @@ self.addEventListener('fetch', function (event) {
             event.respondWith(caches.match('Currency-Converter/index.html'));
             return;
         }
-        if (requestUrl.pathname.includes("/Currency-Converter/")) {
-            event.respondWith(caches.match(requestUrl.pathname));
-            return;
-        }
+        console.log(requestUrl.pathname);
+        // if (requestUrl.pathname.includes("/Currency-Converter/")) {
+        //     event.respondWith(caches.match(requestUrl.pathname));
+        //     return;
+        // }
     }
 
     event.respondWith(
