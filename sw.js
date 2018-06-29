@@ -40,11 +40,11 @@ self.addEventListener('fetch', function (event) {
 
     if (requestUrl.origin === location.origin) {
         if (requestUrl.pathname === '/') {
-            event.respondWith(caches.match('/index.html'));
+            event.respondWith(caches.match('./index.html'));
             return;
         }
         if (requestUrl.pathname.endsWith('style.css')) {
-            event.respondWith(caches.match('/style.css'));
+            event.respondWith(caches.match('./style.css'));
             return;
         }
         if (requestUrl.pathname.endsWith('.js')) {
