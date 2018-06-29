@@ -40,7 +40,7 @@ self.addEventListener('fetch', function (event) {
 
     if (requestUrl.origin === location.origin) {
         if (requestUrl.pathname.includes("/Currency-Converter/")) {
-            event.respondWith(caches.match(requestUrl.pathname));
+            event.respondWith(caches.match('index.html'));
             return;
         }
         if (requestUrl.pathname === ("/")) {
