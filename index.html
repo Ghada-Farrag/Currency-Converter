@@ -1,26 +1,35 @@
----
-layout: default
----
-		<script src="idb.js"></script>
-		<script src="IndexController.js"></script>
-		<script src="index.js"></script>
-				<div >
-					<span style:"text-align:center;font-color:red;">CURRENCY CONVERTER</span>
-					<div> </div>
-					
-					<div >
-						<input type="text" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount here ..." style="font-size:16px;">
-						<span>From </span>
-						<select id="CURR_FROM"></select>
-						<span>to</span>
-						<select id="CURR_TO"></select>
-						<span><button onclick="getCurrencyUsingJQuery()" >Convert</button></span>
-					</div>
-				
-					<div>  </div>
-				</div>
-	
-			<div >
-				<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert button to see your result here ..." style=text-align:center;"background-color: #eee; width:400px;  font-size:16px;">
-			</div>
-		
+--- layout: default ---
+
+<script src="idb.js"></script>
+<script src="IndexController.js"></script>
+<script src="index.js"></script>
+<style scoped>
+	@import url("style.css");
+</style>
+<div>
+	<h1>CURRENCY CONVERTER</h1>
+	<div> </div>
+
+	<div class="row">
+		<span class="input">
+			<input type="text" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount here ...">
+		</span>
+		<div class="row">From </div>
+		<div class="row"><select id="CURR_FROM"></select></div>
+		<div class="row">To</div>
+		<div class="row"><select id="CURR_TO"></select></div>
+
+<div class="row">
+			<span>
+				<button class="small button" onclick="btnConvertCurrency()">Convert</button>
+			</span>
+</div>
+
+	<div> </div>
+</div>
+
+<div>
+	<span class="input">
+		<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert button to see your result here ...">
+	</span>
+</div>
