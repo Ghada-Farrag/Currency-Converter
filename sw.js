@@ -1,4 +1,4 @@
-const staticCacheName = 'cc-static-v60';
+const staticCacheName = 'cc-static-v90';
 
 const allCaches = [
     staticCacheName
@@ -9,6 +9,7 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
+                '/',
                 'index.html',
                 'idb.js',
                 'index.js',
@@ -20,18 +21,20 @@ self.addEventListener('install', function (event) {
 
 self.addEventListener('activate', function (event) {
   
-    event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.filter(function (cacheName) {
-                    return cacheName.startsWith('cc-') && 
-                        !allCaches.includes(cacheName);
-                }).map(function (cacheName) {
-                    return caches.delete(cacheName);
-                })
-            );
-        })
-    );
+    // event.waitUntil(
+    //     caches.keys().then(function (cacheNames) {
+    //         return Promise.all(
+    //             cacheNames.filter(function (cacheName) {
+    //                 return cacheName.startsWith('cc-') && 
+    //                     !allCaches.includes(cacheName);
+    //             }).map(function (cacheName) {
+    //                 return caches.delete(cacheName);
+    //             })
+    //         );
+    //     })
+    // );
+
+    return;
 
 });
 
@@ -47,18 +50,18 @@ self.addEventListener('fetch', function (event) {
                 event.respondWith(caches.match('Currency-Converter/index.html'));
                 return;
             }
-            if (requestUrl.pathname.endsWith('style.css')) {
-                event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
-                return;
-            }
-            if (requestUrl.pathname.endsWith('.js')) {
-                //event.respondWith(caches.match(requestUrl.pathname.replace('/','')));
-                const index = requestUrl.pathname.indexOf("Currency-Converter/") + 1;
-                console.log('index = ', index)
-                event.respondWith(caches.match(requestUrl.pathname.substring(index)));
-                return;
+            // if (requestUrl.pathname.endsWith('style.css')) {
+            //     event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
+            //     return;
+            // }
+            // if (requestUrl.pathname.endsWith('.js')) {
+            //     //event.respondWith(caches.match(requestUrl.pathname.replace('/','')));
+            //     const index = requestUrl.pathname.indexOf("Currency-Converter/") + 1;
+            //     console.log('index = ', index)
+            //     event.respondWith(caches.match(requestUrl.pathname.substring(index)));
+            //     return;
             
-            }
+            // }
         }    
     
 
