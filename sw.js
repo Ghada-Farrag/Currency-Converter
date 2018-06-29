@@ -41,10 +41,10 @@ self.addEventListener('fetch', function (event) {
                 event.respondWith(caches.match('index.html'));
                 return;
             }
-            if (requestUrl.pathname.endsWith('/')) {
-                event.respondWith(caches.match('Currency-Converter/index.html'));
-                return;
-            }
+            // if (requestUrl.pathname.endsWith('/')) {
+            //     event.respondWith(caches.match('Currency-Converter/index.html'));
+            //     return;
+            // }
             if (requestUrl.pathname.endsWith('style.css')) {
                 event.respondWith(caches.match(requestUrl.pathname.replace('/', '')));
                 return;
