@@ -65,12 +65,12 @@ IndexController.prototype._registerServiceWorker = function () {
 
   // Ensure refresh is only called once.
   // This works around a bug in "force update on reload".
-  var refreshing;
-  navigator.serviceWorker.addEventListener('controllerchange', function () {
-    if (refreshing) return;
-    window.location.reload();
-    refreshing = true;
-  });
+  // var refreshing;
+  // navigator.serviceWorker.addEventListener('controllerchange', function () {
+  //   if (refreshing) return;
+  //   window.location.reload();
+  //   refreshing = true;
+  // });
 };
 
 
@@ -93,67 +93,67 @@ IndexController.prototype._updateReady = function (worker) {
 };
 
 // open a connection to the server for live updates
-IndexController.prototype._openSocket = function () {
-  var indexController = this;
-  var latestPostDate = this._postsView.getLatestPostDate();
+// IndexController.prototype._openSocket = function () {
+//   var indexController = this;
+//   var latestPostDate = this._postsView.getLatestPostDate();
 
-  // create a url pointing to /updates with the ws protocol
-  var socketUrl = new URL('/updates', window.location);
-  socketUrl.protocol = 'ws';
+//   // create a url pointing to /updates with the ws protocol
+//   var socketUrl = new URL('/updates', window.location);
+//   socketUrl.protocol = 'ws';
 
-  if (latestPostDate) {
-    socketUrl.search = 'since=' + latestPostDate.valueOf();
-  }
+//   if (latestPostDate) {
+//     socketUrl.search = 'since=' + latestPostDate.valueOf();
+//   }
 
-  // this is a little hack for the settings page's tests,
-  // it isn't needed for Wittr
-  socketUrl.search += '&' + location.search.slice(1);
+//   // this is a little hack for the settings page's tests,
+//   // it isn't needed for Wittr
+//   socketUrl.search += '&' + location.search.slice(1);
 
-  var ws = new WebSocket(socketUrl.href);
+//   var ws = new WebSocket(socketUrl.href);
 
-  // add listeners
-  ws.addEventListener('open', function () {
-    if (indexController._lostConnectionToast) {
-      indexController._lostConnectionToast.hide();
-    }
-  });
+//   // add listeners
+//   ws.addEventListener('open', function () {
+//     if (indexController._lostConnectionToast) {
+//       indexController._lostConnectionToast.hide();
+//     }
+//   });
 
-  ws.addEventListener('message', function (event) {
-    requestAnimationFrame(function () {
-      indexController._onSocketMessage(event.data);
-    });
-  });
+//   ws.addEventListener('message', function (event) {
+//     requestAnimationFrame(function () {
+//       indexController._onSocketMessage(event.data);
+//     });
+//   });
 
-  ws.addEventListener('close', function () {
-    // tell the user
-    if (!indexController._lostConnectionToast) {
-      indexController._lostConnectionToast = indexController._toastsView.show("Unable to connect. Retrying…");
-    }
+//   ws.addEventListener('close', function () {
+//     // tell the user
+//     if (!indexController._lostConnectionToast) {
+//       indexController._lostConnectionToast = indexController._toastsView.show("Unable to connect. Retrying…");
+//     }
 
-    // try and reconnect in 5 seconds
-    setTimeout(function () {
-      indexController._openSocket();
-    }, 5000);
-  });
-};
+//     // try and reconnect in 5 seconds
+//     setTimeout(function () {
+//       indexController._openSocket();
+//     }, 5000);
+//   });
+// };
 
-IndexController.prototype._showCachedMessages = function () {
-  var indexController = this;
+// IndexController.prototype._showCachedMessages = function () {
+//   var indexController = this;
 
-  return this._dbPromise.then(function (db) {
-    // if we're already showing posts, eg shift-refresh
-    // or the very first load, there's no point fetching
-    // posts from IDB
-    if (!db) return;
+//   return this._dbPromise.then(function (db) {
+//     // if we're already showing posts, eg shift-refresh
+//     // or the very first load, there's no point fetching
+//     // posts from IDB
+//     if (!db) return;
 
-    var index = db.transaction('currencyList')
-      .objectStore('currencyList').index('by-date');
+//     var index = db.transaction('currencyList')
+//       .objectStore('currencyList').index('by-date');
 
-    return index.getAll().then(function (messages) {
-      indexController._postsView.addPosts(messages.reverse());
-    });
-  });
-};
+//     return index.getAll().then(function (messages) {
+//       indexController._postsView.addPosts(messages.reverse());
+//     });
+//   });
+// };
 
 
 
@@ -218,12 +218,16 @@ IndexController.prototype._getAPICurrencyList = function () {
       },
   ).then(
     response => {
+      if (response) {
       this._currencyList = response.results;
       console.log("local currency list loaded: ", this._currencyList);
 
       indexController._storeCurrencyList();
       console.log('>>>Populating lists from API ...');
       populateLists(this._currencyList);
+      } else {
+        console.log("Fecth error: no response");
+      }
     },
     parseError => {
       console.log("parsing Error", parseError);
@@ -322,8 +326,3 @@ IndexController.prototype._convertCurrencyFromDB = function (from_to, amount) {
   }).catch(error => console.log('db error: ', error));
 
 }
-
-
-
-
-

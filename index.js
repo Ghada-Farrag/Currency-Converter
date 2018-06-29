@@ -1,7 +1,6 @@
 
 
 const indexController = new IndexController(document.querySelector('.main'));
-//populateLists();
 
 
 
