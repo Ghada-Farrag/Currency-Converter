@@ -1,4 +1,4 @@
-const staticCacheName = 'cc-static-2000';
+const staticCacheName = 'cc-static-4000';
 const allCaches = [
     staticCacheName
 ];
