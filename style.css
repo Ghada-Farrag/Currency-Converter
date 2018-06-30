@@ -1,10 +1,17 @@
-*{
-  font-size: 1rem;
-  font-family: 'Courier New', Courier, monospace;
-
-
+html { 
+  background: url(./bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
+
+body {
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
 .img-cc {
   background: transparent;
   margin: 0px;
@@ -19,9 +26,9 @@
     position:fixed;
     top: 30%;
     left: 50%;
-    width:30em;
-    height:27em;
-    margin-top: -9em; /*set to a negative number 1/2 of your height*/ 
+    width:26em;
+    height:22em;
+    margin-top: -5em; /*set to a negative number 1/2 of your height*/ 
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
     border: 1px solid #ccc;
     background-color: #abe0a0;
@@ -32,7 +39,7 @@
     font: 95% Arial, Helvetica, sans-serif;
     max-width: 400px;
     margin: 10px auto;
-    padding: 16px;
+    padding: 15px;
     background: #F7F7F7;
 }
 .form-style-6 h1{
@@ -46,6 +53,7 @@
     margin: 10px -10px 10px -10px;
     text-justify: distribute;
     vertical-align: middle;
+    font-weight: bold;
 }
 .form-style-6 input[type="text"],
 .form-style-6 input[type="date"],
@@ -70,7 +78,7 @@
     background: #fff;
     margin-bottom: 4%;
     border: 1px solid #ccc;
-    padding: 3%;
+    padding: 2%;
     color: #555;
     font: 95% Arial, Helvetica, sans-serif;
 }
@@ -86,7 +94,7 @@
 .form-style-6 select:focus
 {
     box-shadow: 0 0 5px #43D1AF;
-    padding: 3%;
+    padding-left: 3%;
     border: 1px solid #43D1AF;
 }
 

@@ -1,4 +1,4 @@
-const staticCacheName = 'cc-static-1234';
+const staticCacheName = 'cc-static-2000';
 const allCaches = [
     staticCacheName
 ];
@@ -8,8 +8,9 @@ self.addEventListener('install', function (event) {
         caches.open(staticCacheName).then(cache => {
             return cache.addAll([
                 './index.html',
-                './icon.png',
                 './style.css',
+                './icon.png',
+                './bg.jpg',
                 './idb.js',
                 './index.js',
                 './IndexController.js'
@@ -43,7 +44,7 @@ self.addEventListener('fetch', event => {
                         cache.put(event.request, response.clone());
                         return response;
                     })
-                ).catch(event => console.log('Service Worker error caching and fetching', event))
+                ).catch(event => console.log('Fetching online or from cache error ', event))
             )
         );
     } else {
@@ -51,9 +52,8 @@ self.addEventListener('fetch', event => {
             .then(cache => {
                 //cache.put(requestUrl.href, response.clone());
                 return response;
-            })).catch(event => {
-                console.log('Service Worker error caching and fetching');
-            });
+            }
+        )).catch(event => console.log('Fetching online or from cache error ', event));
     }
 });
 
