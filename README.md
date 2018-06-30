@@ -1,7 +1,7 @@
 ## Welcome to my 'Currency Converter' #7DaysofCodeChallenge
 
 See the working application published on github pages here   
-#[https://ghada-farrag.github.io/Currency-Converter/](https://ghada-farrag.github.io/Currency-Converter/) 
+# [https://ghada-farrag.github.io/Currency-Converter/](https://ghada-farrag.github.io/Currency-Converter/) 
 try use it to convert currencies in both online and offline mode.
 
 ## Downloading and running the app
