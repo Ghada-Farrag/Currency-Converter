@@ -1,10 +1,12 @@
 ## Welcome to my 'Currency Converter' #7DaysofCodeChallenge
 
-See the working application published here   [https://ghada-farrag.github.io/Currency-Converter/](https://ghada-farrag.github.io/Currency-Converter/) and try use it to convert currencies in both online and offline mode.
+See the working application published on github pages here   
+#[https://ghada-farrag.github.io/Currency-Converter/](https://ghada-farrag.github.io/Currency-Converter/) 
+try use it to convert currencies in both online and offline mode.
 
-## download and run on localhost
+## Downloading and running the app
 Application implemented using HTML/CSS/JS only .. no frameworks required.
-Project can be downloaded and run from localhost in the same way like published version.
+Project can be downloaded and run on localhost by putting project files directly under localhost folder root.
 
 ### About 
 
