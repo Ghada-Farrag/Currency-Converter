@@ -1,8 +1,5 @@
-
-body {
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
-  background: url(./bg.jpg) no-repeat center center fixed; 
+html {
+    background: url(./bg.jpg) no-repeat center center fixed; 
     background-repeat: no-repeat; 
     background-position: center;
     background-attachment: fixed;       
@@ -13,7 +10,14 @@ body {
     background-size: cover;
     height:100%;
     width:100%; 
-    font-size:small;
+}
+
+
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-size:small;
 }
 
 .img-cc {
