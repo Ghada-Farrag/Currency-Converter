@@ -6,21 +6,19 @@ html {
   background-size: cover;
 }
 
-
 body {
   font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   color: white;
 }
+
 .img-cc {
   background: transparent;
   margin: 0px;
   padding: 0px;
   margin: 0px;
   vertical-align: middle;
-}
-
-
+} 
 
 #main {
     position:fixed;

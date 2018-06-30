@@ -238,7 +238,7 @@ class IndexController {
       });
     }).catch(error => console.log('db error: ', error));
 
-  }
+  } 
 
 }//end of class
 

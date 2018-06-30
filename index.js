@@ -11,7 +11,7 @@ function btnConvertCurrency() {
         document.getElementById("CURR_VAL").value = '';
 
         indexController.convertCurrency(amount, fromCurrency, toCurrency);
-    } else {
+    } else { 
         document.getElementById("CURR_VAL").value = 'No amount entered!';
     }
-}                                                               
+}

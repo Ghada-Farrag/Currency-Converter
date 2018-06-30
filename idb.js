@@ -1,3 +1,5 @@
+/* Note: This is lib file used as is .. not ES6 version */
+
 'use strict';
 
 (function() {
