@@ -7,7 +7,6 @@ html {
 }
 
 body {
-  font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   color: white;
 }
@@ -24,10 +23,10 @@ body {
     position:fixed;
     top: 30%;
     left: 50%;
-    width:26em;
-    height:22em;
+    width:22em;
+    height:20.5em;
     margin-top: -5em; /*set to a negative number 1/2 of your height*/ 
-    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    margin-left: -9.5em; /*set to a negative number 1/2 of your width*/
     border: 1px solid #ccc;
     background-color: #abe0a0;
 }
@@ -35,7 +34,7 @@ body {
 ****************** form style start here ****************/
 .form-style-6{
     font: 95% Arial, Helvetica, sans-serif;
-    max-width: 400px;
+    max-width: 350px;
     margin: 10px auto;
     padding: 15px;
     background: #F7F7F7;
@@ -45,7 +44,7 @@ body {
     background: rgb(15, 175, 15);
     padding: 5px;
     font-size: 140%;
-    font-weight: 300;
+    font-weight: 250;
     text-align: center;
     color: #fff;
     margin: 10px -10px 10px -10px;
@@ -110,7 +109,7 @@ body {
     border-right-style: none;
     border-left-style: none;    
     color: #fff;
-    font-size: 140%;
+    font-size: 130%;
 }
 .form-style-6 button,
 .form-style-6 input[type="submit"]:hover,
