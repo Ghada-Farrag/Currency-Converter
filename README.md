@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+## Welcome to my 'Currency Converter' #7DaysofCodeChallenge
 
-You can use the [editor on GitHub](https://github.com/Ghada-Farrag/Currency-Converter/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+See the working application published on github pages here   
+### [https://ghada-farrag.github.io/Currency-Converter/](https://ghada-farrag.github.io/Currency-Converter/) 
+try use it to convert currencies in both online and offline mode.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Downloading and running the app
+Application implemented using HTML/CSS/JS only .. no frameworks required.
+Project can be downloaded and run on localhost by putting project files directly under localhost folder root.
 
-### Markdown
+### About 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This is my code challenge project #7DaysofCodeChallenge - ALCwithGoogle - Mobile Web Specialist Track - June 2018 - By Ghada Farrag
 
-```markdown
-Syntax highlighted code block
+### Contact
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Ghada-Farrag/Currency-Converter/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[Ghada Farrag](mailto:ghain4ghada@gmail.com).
