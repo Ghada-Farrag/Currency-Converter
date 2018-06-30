@@ -1,4 +1,4 @@
-const staticCacheName = 'cc-static-11';
+const staticCacheName = 'cc-static-1234';
 const allCaches = [
     staticCacheName
 ];
@@ -8,6 +8,7 @@ self.addEventListener('install', function (event) {
         caches.open(staticCacheName).then(cache => {
             return cache.addAll([
                 './index.html',
+                './icon.png',
                 './style.css',
                 './idb.js',
                 './index.js',

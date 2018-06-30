@@ -6,31 +6,31 @@
 <style scoped>
 	@import url("./style.css");
 </style>
+
 <div id='main'>
 	<div class='form-style-6'>
-		<h1>CURRENCY CONVERTER</h1>
-		
+		<h1>
+			<img class='img-cc' src="./icon.png" alt="" height="42" width="42" /> CURRENCY CONVERTER</h1>
+
+		<div>
+			<input type="number" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount here ..." required>
+
+			<div style='padding-left: 15px;'> From </div>
+
+			<div><select id="CURR_FROM"></select></div>
+
+			<div style='padding-left: 15px;'> To </div>
+
+			<div><select id="CURR_TO"></select>	</div>
+
+			<div><button type="button" onclick="btnConvertCurrency()">CONVERT</button></div>
+
 			<div>
-				<span>
-					<input type="number" name="CURR_FR_VAL" id="CURR_FR_VAL" placeholder="Enter amount here ..." required>
-				</span>
-				<div>From </div>
-				<div>
-					<select id="CURR_FROM"></select>
-				</div>
-				<div>To</div>
-				<div>
-					<select id="CURR_TO"></select>
-				</div>
-
-				<div>
-					<button type="button" onclick="btnConvertCurrency()" >CONVERT</button>
-				</div>
-
-				<div>
-					<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert button to see your result here ...">
-				</div>
+				<input type="text" id="CURR_VAL" readonly="" placeholder="Press Convert to see your result here ...">
 			</div>
-		
+		</div>
+<blockquote>Welcome to my Currency Converter! This is my code challenge project #7DaysofCodeChallenge - ALCwithGoogle - Mobile Web Specialist
+	Track - June 2018 - By Ghada Farrag
+</blockquote>
 	</div>
 </div>
